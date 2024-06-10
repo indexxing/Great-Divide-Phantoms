@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap');
+
+html, body {
+    overflow: hidden;
+}
+
+body {
+    background-color: #000;
+    /*background-image: url('https://c0.ptacdn.com/static/assets/events/great-divide-assets/bg.df1226a7.jpg');*/
+    background-image: url('https://cdn.discordapp.com/attachments/1249373838907670569/1249528078653198408/phantom.png?ex=6667a135&is=66664fb5&hm=56a6bf98791fd981d40cec31c4b03c0b78905ec0cec957c56958fff043f26236&');
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    background-position: center;
+
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "DM Serif Text", serif !important;
+}
+
+.great-divide-card {
+    background: rgba(0.7, 0.7, 0.7, 0.7);
+    border-radius: 10px;
+    border: 0.5px solid #007b;
+    padding: 15px;
+}
+
+.btn-info {
+    --bs-btn-bg: rgb(0, 0, 174);
+    --bs-btn-border-color: rgb(0, 0, 174);
+    --bs-btn-color: #fff;
+    --bs-btn-hover-bg: rgb(0, 0, 132);
+    --bs-btn-hover-border-color: rgb(0, 0, 132);
+    --bs-btn-hover-color: #fff;
+}
