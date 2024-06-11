@@ -60,23 +60,19 @@ document.addEventListener('DOMContentLoaded', function(){
         document.getElementById('countdown').innerText = countdownStr;
     }
 
-    /*
-    DISABLED DUE TO CORS POLICY ISSUE
-
     let memberUpdate = 0
     async function updateMemberCount() {
         // I would subtract like 3 users because Polytoria, Jane, and Brixster are in the group but then people would tell me it's incorrect so im going to keep the data incorrect
         memberUpdate++
-        const Members = (await (await fetch('https://api.polytoria.com/v1/guilds/641/members?limit=1&page=1')).json()).total
-        document.getElementById('memberCount')
+        const Members = JSON.parse(await (await fetch('https://polyproxy.xv7r8fhghd.workers.dev/divide')).json()).phantoms
+        document.getElementById('memberCount').innerText = Members
 
         if (memberUpdate === 1){
             setInterval(() => {
                 updateMemberCount()
-            }, 1500);
+            }, 3500);
         }
     }
-    */
 
     function alignInterval() {
         var now = new Date();
@@ -90,5 +86,5 @@ document.addEventListener('DOMContentLoaded', function(){
 
     alignInterval();
     updateCountdown();
-    //updateMemberCount();
+    updateMemberCount();
 })
