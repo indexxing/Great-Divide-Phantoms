@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function(){
     async function updateMemberCount() {
         // I would subtract like 3 users because Polytoria, Jane, and Brixster are in the group but then people would tell me it's incorrect so im going to keep the data incorrect
         memberUpdate++
-        const Members = await (await fetch('https://polyproxy.xv7r8fhghd.workers.dev/divide')).json().phantoms
+        const Members = (await (await fetch('https://polyproxy.xv7r8fhghd.workers.dev/divide')).json()).phantoms
         document.getElementById('memberCount').innerText = Members
 
         if (memberUpdate === 1){
