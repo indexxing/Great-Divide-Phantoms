@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function(){
         if (memberUpdate === 1){
             setInterval(() => {
                 updateMemberCount()
-            }, 3500);
+            }, 15000);
         }
     }
 
