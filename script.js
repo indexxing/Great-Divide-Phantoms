@@ -5,6 +5,7 @@
 */
 
 document.addEventListener('DOMContentLoaded', function(){
+    const updateInterval = 60 * 30 * 1000; // 30 minutes
     var targetTimestamp = 1718398800;
 
     function updateCountdown() {
@@ -84,7 +85,58 @@ document.addEventListener('DOMContentLoaded', function(){
         }, msToNextSecond);
     }
 
+    const ctx = document.getElementById('divideChart');
+
+    const chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: [],
+            datasets: [{
+                label: 'Phantoms',
+                data: [],
+                borderColor: '#516fda',
+                tension: 0.1
+            }, {
+                label: 'Cobras',
+                data: [],
+                borderColor: '#3fb068',
+                tension: 0.1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: false,
+                },
+                x: {
+                    ticks: {
+                        display: false
+                    }
+                }
+            }
+        }
+    });
+
+    function updateChart() {
+        fetch('https://stats.silly.mom/team_points?timesort=hour')
+            .then(response => response.json())
+            .then(data => {
+                // first, sort data by timestamp
+                data.results.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
+
+                // map data to chart
+                chart.data.labels = data.results.map(result => result.timestamp);
+                chart.data.datasets[0].data = data.results.map(result => result.phantoms);
+                chart.data.datasets[1].data = data.results.map(result => result.cobras);
+
+                chart.update();
+            });
+    }
+
+    updateChart();
     alignInterval();
     updateCountdown();
     updateMemberCount();
+
+    setInterval(updateChart, updateInterval);
 })
