@@ -102,6 +102,11 @@ document.addEventListener('DOMContentLoaded', function(){
                 data: [],
                 borderColor: '#3fb068',
                 tension: 0.1
+            }, {
+                label: 'Difference',
+                data: [],
+                borderColor: '#ffffff',
+                tension: 0.1
             }]
         },
         options: {
@@ -129,6 +134,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 chart.data.labels = data.results.map(result => result.timestamp);
                 chart.data.datasets[0].data = data.results.map(result => result.phantoms);
                 chart.data.datasets[1].data = data.results.map(result => result.cobras);
+                chart.data.datasets[2].data = data.results.map(result => Math.abs(result.phantoms - result.cobras));
 
                 chart.update();
             });
