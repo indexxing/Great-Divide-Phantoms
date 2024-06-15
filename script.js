@@ -158,6 +158,6 @@ document.addEventListener('DOMContentLoaded', function(){
     updateCountdown();
     updateMemberCount();
 
-    setInterval(updateChart, updateInterval);
+    setInterval(updateChart, updateChartInterval);
     setInterval(updateOdometers, updateOdometerInterval);
 })
