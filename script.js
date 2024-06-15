@@ -5,7 +5,8 @@
 */
 
 document.addEventListener('DOMContentLoaded', function(){
-    const updateInterval = 60 * 30 * 1000; // 30 minutes
+    const updateChartInterval = 60 * 30 * 1000; // 30 minutes
+    const updateOdometerInterval = 60 * 1000; // 60 seconds
     var targetTimestamp = 1718398800;
 
     function updateCountdown() {
@@ -133,10 +134,30 @@ document.addEventListener('DOMContentLoaded', function(){
             });
     }
 
+    const phantomOdometer = document.getElementById('phantomsOdometer');
+    const cobrasOdometer = document.getElementById('cobrasOdometer');
+    const gapOdometer = document.getElementById('diffOdometer');
+    
+
+    function updateOdometers() {
+        fetch('https://stats.silly.mom/team_points?limit=1')
+            .then(response => response.json())
+            .then(data => {
+                const result = data.results[0];
+
+                phantomOdometer.innerText = result.phantoms;
+                cobrasOdometer.innerText = result.cobras;
+                // gap between phantoms and cobras
+                gapOdometer.innerText = Math.abs(result.phantoms - result.cobras);
+            });
+    }
+
     updateChart();
+    updateOdometers();
     alignInterval();
     updateCountdown();
     updateMemberCount();
 
     setInterval(updateChart, updateInterval);
+    setInterval(updateOdometers, updateOdometerInterval);
 })
