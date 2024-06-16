@@ -7,7 +7,7 @@
 document.addEventListener('DOMContentLoaded', function(){
     const updateChartInterval = 60 * 30 * 1000; // 30 minutes
     const updateOdometerInterval = 60 * 1000; // 60 seconds
-    var targetTimestamp = 1718398800;
+    var targetTimestamp = 1718960400;
 
     function updateCountdown() {
         var now = new Date().getTime();
