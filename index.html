@@ -110,7 +110,7 @@
 
             .hover-effect-great-divide:hover { 
                 transform: scale(1.05); 
-                color: blue
+                color: blue;
             }
 
             .hover-effect-small:hover { 
@@ -118,9 +118,9 @@
             }
             
             @media only screen and (max-width: 768px) {
-               #page.w-50 {
-                  width: 95% !important;
-               }
+                #page.w-50 {
+                    width: 95% !important;
+                }
             }
         </style>
         <main id="page" class="w-50 mx-auto text-center">
@@ -136,6 +136,30 @@
                     <a href="https://www.youtube.com/watch?v=XOkjgVAeb3w" target="_blank" class="btn btn-info btn-sm hover-effect-small">tutorial</a>
                 </div>
             </div>
+
+            <div class="mb-5">
+                <h1 class="mb-2">Track the Movement!</h1>
+                <div class="d-flex justify-content-center mb-3" style="column-gap: 2rem;">
+                    <div>
+                        <p class="mb-0" style="color: rgb(0 0 238);">phantoms</p>
+                        <h3 id="phantomsOdometer" class="odometer">0</h3>
+                    </div>
+                    <div>
+                        <p class="mb-0" style="color: green;">cobras</p>
+                        <h3 id="cobrasOdometer" class="odometer">0</h3>
+                    </div>
+                    <div>
+                        <p class="mb-0">diff.</p>
+                        <h3 id="diffOdometer" class="odometer">0</h3>
+                    </div>
+                    <div style="width: 1px; background: #292929;"></div>
+                    <div>
+                        <p class="text-muted mb-0">phantom member count</p>
+                        <h2 class="mb-0" id="memberCount">0</h4>
+                    </div>
+                </div>
+                <canvas id="divideChart"></canvas>
+            </div>
             
             <div class="great-divide-card mb-5">
                 <img src="our-leader.png" alt="Ultramob's Avatar Headshot (as of June 12th 2024)" class="img-fluid rounded mb-3" width="100" height="100">
@@ -150,25 +174,6 @@
                     <br><br>
                     Now, onto the future. We need to start preparing for the fight, and now our best move is to focus on strengthening our cause. I want to start this call to ask for everyone who can to create something to help recruit new phantoms, whether this be advertisements, outfits or anything else you can think of, we want to get new recruits who will fight and help out our cause. While we could join in further and fight back again against the childish bickering sent by the Cobras, for now we should stay low on that aspect and only post propaganda that truly helps our cause, or shows them in a truly bad light.
                 </p>
-            </div>
-
-            <div>
-                <h1 class="mb-2">Track the Movement!</h1>
-                <div class="d-flex justify-content-center" style="column-gap: 2rem;">
-                    <div>
-                        <p class="text-muted">phantoms</p>
-                        <h3 id="phantomsOdometer" class="odometer">0</h3>
-                    </div>
-                    <div>
-                        <p class="text-muted">cobras</p>
-                        <h3 id="cobrasOdometer" class="odometer">0</h3>
-                    </div>
-                    <div>
-                        <p class="text-muted">gap</p>
-                        <h3 id="diffOdometer" class="odometer">0</h3>
-                    </div>
-                </div>
-                <canvas id="divideChart"></canvas>
             </div>
 
             <div>
@@ -245,15 +250,14 @@
                     </li>
                     <li class="mb-5">
                         <h2><small class="text-muted" style="font-size: 0.8rem;">IV.</small> SHOW YOUR TRUE POWER</h3>
-                        <p class="text-muted" style="margin-top: -5px;">show your true power in the battle field during your<br>first mission in <span id="countdown" style="color: rgb(0 0 238);"></span>.</p>
-                        <!-- put the actual info here when the event starts -->
+                        <p class="text-muted" style="margin-top: -5px;">show your true power in the battle field during your <span style="color: rgb(0 0 238);"><b>first</b> mission (of 4)</span>.</p>
+                        <div class="d-flex" style="gap: 15px; justify-content: center;">
+                            <a class="hover-effect" href="https://polytoria.com/places/9656" target="_blank">
+                                <img src="https://c0.ptacdn.com/places/icons/WxomBAbMNNNnnAkKxuD11Snnoz2C26wW.png" alt="The Wayland Bridge - by Willemsteller" class="great-divide-place img-fluid rounded" width="175" height="175">
+                            </a>
+                        </div>
                     </li>
                 </ul>
-            </div>
-            <hr class="w-50 mx-auto mb-3">
-            <div>
-                <p class="text-muted mb-0">members who support our cause (and counting)</p>
-                <h2 class="mb-0" id="memberCount">loading</h4>
             </div>
             <div style="height: 200px;"></div>
         </main>
