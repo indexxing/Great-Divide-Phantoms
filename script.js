@@ -5,7 +5,7 @@
 */
 
 document.addEventListener('DOMContentLoaded', function(){
-    const updateChartInterval = 60 * 30 * 1000; // 30 minutes
+    const updateChartInterval = 60 * 60 * 1000; // 60 minutes
     const updateOdometerInterval = 60 * 1000; // 60 seconds
     var targetTimestamp = 1718960400;
 
@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function(){
     function updateChart() {
         // Prevent fetching data when the tab is not visible
         if (!document.hidden) {
-            fetch('https://stats.silly.mom/team_points?timesort=hour')
+            fetch('https://stats.silly.mom/team_points?timesort=hour&limit=100')
                 .then(response => response.json())
                 .then(data => {
                     // first, sort data by timestamp
