@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function(){
         if (memberUpdate === 1){
             setInterval(() => {
                 updateMemberCount()
-            }, 15000);
+            }, 15 * 1000); // 15 seconds
         }
     }
 
@@ -124,20 +124,23 @@ document.addEventListener('DOMContentLoaded', function(){
     });
 
     function updateChart() {
-        fetch('https://stats.silly.mom/team_points?timesort=hour')
-            .then(response => response.json())
-            .then(data => {
-                // first, sort data by timestamp
-                data.results.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
+        // Prevent fetching data when the tab is not visible
+        if (!document.hidden) {
+            fetch('https://stats.silly.mom/team_points?timesort=hour')
+                .then(response => response.json())
+                .then(data => {
+                    // first, sort data by timestamp
+                    data.results.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
 
-                // map data to chart
-                chart.data.labels = data.results.map(result => result.timestamp);
-                chart.data.datasets[0].data = data.results.map(result => result.phantoms);
-                chart.data.datasets[1].data = data.results.map(result => result.cobras);
-                chart.data.datasets[2].data = data.results.map(result => Math.abs(result.phantoms - result.cobras));
+                    // map data to chart
+                    chart.data.labels = data.results.map(result => result.timestamp);
+                    chart.data.datasets[0].data = data.results.map(result => result.phantoms);
+                    chart.data.datasets[1].data = data.results.map(result => result.cobras);
+                    chart.data.datasets[2].data = data.results.map(result => Math.abs(result.phantoms - result.cobras));
 
-                chart.update();
-            });
+                    chart.update();
+                });
+        }
     }
 
     const phantomOdometer = document.getElementById('phantomsOdometer');
@@ -146,16 +149,19 @@ document.addEventListener('DOMContentLoaded', function(){
     
 
     function updateOdometers() {
-        fetch('https://stats.silly.mom/team_points?limit=1')
-            .then(response => response.json())
-            .then(data => {
-                const result = data.results[0];
+        // Prevent fetching data when the tab is not visible
+        if (!document.hidden) {
+            fetch('https://stats.silly.mom/team_points?limit=1')
+                .then(response => response.json())
+                .then(data => {
+                    const result = data.results[0];
 
-                phantomOdometer.innerText = result.phantoms;
-                cobrasOdometer.innerText = result.cobras;
-                // gap between phantoms and cobras
-                gapOdometer.innerText = Math.abs(result.phantoms - result.cobras);
-            });
+                    phantomOdometer.innerText = result.phantoms;
+                    cobrasOdometer.innerText = result.cobras;
+                    // gap between phantoms and cobras
+                    gapOdometer.innerText = Math.abs(result.phantoms - result.cobras);
+                });
+        }
     }
 
     updateChart();
