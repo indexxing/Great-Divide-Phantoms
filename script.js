@@ -96,12 +96,14 @@ document.addEventListener('DOMContentLoaded', function(){
                 label: 'Phantoms',
                 data: [],
                 borderColor: '#516fda',
-                tension: 0.1
+                tension: 0.1,
+                hidden: true
             }, {
                 label: 'Cobras',
                 data: [],
                 borderColor: '#3fb068',
-                tension: 0.1
+                tension: 0.1,
+                hidden: true
             }, {
                 label: 'Difference',
                 data: [],
