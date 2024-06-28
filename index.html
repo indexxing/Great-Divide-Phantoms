@@ -82,6 +82,15 @@
                 --bs-btn-hover-color: #fff;
             }
 
+            .btn-outline-info {
+                --bs-btn-bg: transparent;
+                --bs-btn-border-color: rgb(0, 0, 174);
+                --bs-btn-color: rgb(0, 0, 174);
+                --bs-btn-hover-bg: rgba(0, 0, 174, 0.5);
+                --bs-btn-hover-border-color: rgb(0, 0, 174);
+                --bs-btn-hover-color: #fff;
+            }
+
             .hover-effect, .hover-effect-small, .hover-effect-great-divide { 
                 transition: all .2s ease-in-out; 
             }
@@ -159,6 +168,13 @@
                     </div>
                 </div>
                 <canvas id="divideChart"></canvas>
+                <div id="sortButtons">
+                    <button data-sort="hour-no-dupe" class="btn btn-outline-info">Hour</button>
+                    <button data-sort="day" class="btn btn-outline-info">Day</button>
+                    <button data-sort="week" class="btn btn-outline-info">Week</button>
+                    <button data-sort="month" class="btn btn-outline-info">Month</button>
+                    <button data-sort="year" class="btn btn-outline-info">Year</button>
+                </div>
             </div>
             
             <div class="great-divide-card mb-5">
@@ -261,6 +277,6 @@
             </div>
             <div style="height: 200px;"></div>
         </main>
-        <script src="script.js?v=11"></script>
+        <script src="script.js?v=12"></script>
     </body>
 </html>

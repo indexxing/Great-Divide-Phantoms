@@ -87,30 +87,33 @@ document.addEventListener('DOMContentLoaded', function(){
     }
 
     const ctx = document.getElementById('divideChart');
+    let sort = 'hour-no-dupe';
+
+    const defaultData = {
+        labels: [],
+        datasets: [{
+            label: 'Phantoms',
+            data: [],
+            borderColor: '#516fda',
+            tension: 0.1,
+            hidden: true
+        }, {
+            label: 'Cobras',
+            data: [],
+            borderColor: '#3fb068',
+            tension: 0.1,
+            hidden: true
+        }, {
+            label: 'Difference',
+            data: [],
+            borderColor: '#ffffff',
+            tension: 0.1
+        }]
+    };
 
     const chart = new Chart(ctx, {
         type: 'line',
-        data: {
-            labels: [],
-            datasets: [{
-                label: 'Phantoms',
-                data: [],
-                borderColor: '#516fda',
-                tension: 0.1,
-                hidden: true
-            }, {
-                label: 'Cobras',
-                data: [],
-                borderColor: '#3fb068',
-                tension: 0.1,
-                hidden: true
-            }, {
-                label: 'Difference',
-                data: [],
-                borderColor: '#ffffff',
-                tension: 0.1
-            }]
-        },
+        data: defaultData,
         options: {
             scales: {
                 y: {
@@ -128,7 +131,7 @@ document.addEventListener('DOMContentLoaded', function(){
     function updateChart() {
         // Prevent fetching data when the tab is not visible
         if (!document.hidden) {
-            fetch('https://stats.silly.mom/team_points?timesort=hour-no-dupe&limit=100')
+            fetch('https://stats.silly.mom/team_points?timesort=' + sort + '&limit=100')
                 .then(response => response.json())
                 .then(data => {
                     // first, sort data by timestamp
@@ -145,11 +148,45 @@ document.addEventListener('DOMContentLoaded', function(){
         }
     }
 
+    const buttons = document.querySelectorAll('[data-sort]');
+
+    buttons.forEach(button => {
+        button.addEventListener('click', function() {
+            changeData(button.getAttribute('data-sort'));
+        });
+    });
+
+    function updateButtonStyles(selectedSort) {
+        buttons.forEach(button => {
+            if (button.getAttribute('data-sort') === selectedSort) {
+                button.classList.remove('btn-outline-info');
+                button.classList.add('btn-info');
+            } else {
+                button.classList.add('btn-outline-info');
+                button.classList.remove('btn-info');
+            }
+        });
+    }
+
+    updateButtonStyles(sort);
+
+    function changeData(sortType) {
+        // check if the sort type is already selected
+        if (sort === sortType) return updateButtonStyles(sortType)
+
+        sort = sortType;
+        chart.data = defaultData;
+        updateChart();
+
+        // change button styles
+        // if selected, btn-outline-info is removed and btn-info is added
+        updateButtonStyles(sortType);
+    }
+
     const phantomOdometer = document.getElementById('phantomsOdometer');
     const cobrasOdometer = document.getElementById('cobrasOdometer');
     const gapOdometer = document.getElementById('diffOdometer');
     
-
     function updateOdometers() {
         // Prevent fetching data when the tab is not visible
         if (!document.hidden) {
