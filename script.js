@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function(){
     function updateChart() {
         // Prevent fetching data when the tab is not visible
         if (!document.hidden) {
-            fetch('https://stats.silly.mom/team_points?timesort=hour&limit=100')
+            fetch('https://stats.silly.mom/team_points?timesort=hour-no-dupe&limit=100')
                 .then(response => response.json())
                 .then(data => {
                     // first, sort data by timestamp
