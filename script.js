@@ -212,7 +212,7 @@ document.addEventListener('DOMContentLoaded', function(){
     updateChart();
     updateOdometers();
     alignInterval();
-    updateCountdown();
+    //updateCountdown();
     updateMemberCount();
 
     setInterval(updateChart, updateChartInterval);
