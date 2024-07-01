@@ -148,13 +148,19 @@ document.addEventListener('DOMContentLoaded', function(){
         }
     }
 
-    const buttons = document.querySelectorAll('[data-sort]');
+    const options = document.getElementById('sortOptions');
 
-    buttons.forEach(button => {
-        button.addEventListener('click', function() {
+    options.addEventListener('change', function(){
+        changeData(options.options[options.selectedIndex].value)
+    })
+
+    /*
+    Array.from(options).forEach(option => {
+        option.addEventListener('click', function() {
             changeData(button.getAttribute('data-sort'));
         });
     });
+    */
 
     function updateButtonStyles(selectedSort) {
         buttons.forEach(button => {
@@ -168,11 +174,11 @@ document.addEventListener('DOMContentLoaded', function(){
         });
     }
 
-    updateButtonStyles(sort);
+    //updateButtonStyles(sort);
 
     function changeData(sortType) {
         // check if the sort type is already selected
-        if (sort === sortType) return updateButtonStyles(sortType)
+        if (sort === sortType) return
 
         sort = sortType;
         chart.data = defaultData;
@@ -180,7 +186,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
         // change button styles
         // if selected, btn-outline-info is removed and btn-info is added
-        updateButtonStyles(sortType);
+        //updateButtonStyles(sortType);
     }
 
     const phantomOdometer = document.getElementById('phantomsOdometer');
