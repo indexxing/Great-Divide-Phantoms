@@ -71,7 +71,10 @@ document.addEventListener('DOMContentLoaded', function(){
 
         if (memberUpdate === 1){
             setInterval(() => {
-                updateMemberCount()
+                // Prevent fetching data when the tab is not visible
+                if (!document.hidden) {
+                    updateMemberCount()
+                }
             }, 15 * 1000); // 15 seconds
         }
     }
