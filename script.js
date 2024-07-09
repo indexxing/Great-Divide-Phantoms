@@ -12,6 +12,10 @@ const HallOfFameData = {
     Emir: {
         id: 17064,
         message: "Emir has been a valuable asset to the phantoms in the later days of the war, he has been in game consistently and encouraging others to not give up hope despite the dire situation we see ourselves in. On top of all this, Emir is incredibly valuable in combat, often being high up on the round leader board racking in kills for our team. Emir always thinks ahead and about what effect a round will have on the overall standings of the war."
+    },
+    kep: {
+        id: 13673,
+        message: "Kep is one of the strongest combatants in the Phantoms and has been vital to our efforts. Kep has often maintained the top of the leader-board, and even with that the gap between him and those below have been huge, this just proves how much devotion and dedication he has towards the phantoms, and for this he deserves a spot in the hall of fame. I don't think we would be anywhere near where we are without the help of Kep and his amazing combat and dedication to earning points."
     }
 }
 
@@ -236,10 +240,10 @@ document.addEventListener('DOMContentLoaded', function(){
         enlistee.addEventListener('click', function(){
             const Username = enlistee.getElementsByClassName('userlink')[0].innerText.trim()
             const Data = Object.values(HallOfFameData)[Object.keys(HallOfFameData).indexOf(Username)]
+            document.getElementById('hall-of-fame-avatar').src = enlistee.getElementsByTagName('img')[0].src.replace('.png', '-icon.png')
             document.getElementById('hall-of-fame-name').innerText = Username;
             document.getElementById('hall-of-fame-name').href = 'https://polytoria.com/u/' + Username;
             document.getElementById('hall-of-fame-desc').innerText = Data.message
-            document.getElementById('hall-of-fame-avatar').src = enlistee.getElementsByTagName('img')[0].src.replace('.png', '-icon.png')
             document.getElementById('hall-of-fame-avatar').alt = 'Hall of Fame - ' + Username;
             document.getElementById('hall-of-fame-modal').showModal()
         })
