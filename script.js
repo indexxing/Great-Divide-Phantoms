@@ -4,6 +4,17 @@
     work smarter not harder
 */
 
+/*
+im not sure why i made this a nested object, but i don't feel like changing it
+- index 2024
+*/
+const HallOfFameData = {
+    Emir: {
+        id: 17064,
+        message: "Emir has been a valuable asset to the phantoms in the later days of the war, he has been in game consistently and encouraging others to not give up hope despite the dire situation we see ourselves in. On top of all this, Emir is incredibly valuable in combat, often being high up on the round leader board racking in kills for our team. Emir always thinks ahead and about what effect a round will have on the overall standings of the war."
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function(){
     const updateChartInterval = 60 * 60 * 1000; // 60 minutes
     const updateOdometerInterval = 60 * 1000; // 60 seconds
@@ -220,4 +231,17 @@ document.addEventListener('DOMContentLoaded', function(){
 
     setInterval(updateChart, updateChartInterval);
     setInterval(updateOdometers, updateOdometerInterval);
+
+    Array.from(document.getElementsByClassName('hall-of-fame')).forEach(enlistee => {
+        enlistee.addEventListener('click', function(){
+            const Username = enlistee.getElementsByClassName('userlink')[0].innerText.trim()
+            const Data = Object.values(HallOfFameData)[Object.keys(HallOfFameData).indexOf(Username)]
+            document.getElementById('hall-of-fame-name').innerText = Username;
+            document.getElementById('hall-of-fame-name').href = 'https://polytoria.com/u/' + Username;
+            document.getElementById('hall-of-fame-desc').innerText = Data.message
+            document.getElementById('hall-of-fame-avatar').src = enlistee.getElementsByTagName('img')[0].src.replace('.png', '-icon.png')
+            document.getElementById('hall-of-fame-avatar').alt = 'Hall of Fame - ' + Username;
+            document.getElementById('hall-of-fame-modal').showModal()
+        })
+    })
 })

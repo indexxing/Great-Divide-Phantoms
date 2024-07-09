@@ -66,7 +66,7 @@
                 font-family: "DM Serif Text", serif !important;
             }
 
-            .great-divide-card {
+            .great-divide-card, #hall-of-fame-modal {
                 background: rgba(0.7, 0.7, 0.7, 0.7);
                 border-radius: 10px;
                 border: 0.5px solid #007b;
@@ -131,7 +131,77 @@
                     width: 95% !important;
                 }
             }
+            
+            .hall-of-fame {
+                text-decoration: none;
+            }
+
+            .hall-of-fame img {
+                width: 200px;
+                padding-top: 5px;
+            }
+
+            /* css taken from Polytoria.com */
+            .userlink::before {
+                background-image: url(userlink-badges.png);
+                background-repeat: no-repeat;
+                background-size: 132px;
+                content: "";
+                display: inline-block;
+                height: 17px;
+                margin-top: -.2em;
+                transform: scale(1.1);
+                vertical-align: middle;
+                width: 17px;
+            }
+
+            .userlink-rookie:before {
+                background-position: 0 0
+            }
+
+            .userlink-private:before {
+                background-position: -16.5px 0
+            }
+
+            .userlink-specialist:before {
+                background-position: -33px 0
+            }
+
+            .userlink-corporal:before {
+                background-position: -49.5px 0
+            }
+
+            .userlink-sergeant:before {
+                background-position: -66px 0
+            }
+
+            .userlink-lieutenant:before {
+                background-position: -82px 0
+            }
+
+            .userlink-commander:before {
+                background-position: -98.5px 0
+            }
+
+            .userlink-captain:before {
+                background-position: -115.5px 0
+            }
+
+            #hall-of-fame-modal {
+                width: 600px;
+                height: 325px;
+                background: rgba(0.9, 0.0, 0.9, 1);
+                border: 2px solid #007b;
+            }
         </style>
+        <dialog id="hall-of-fame-modal">
+            <p class="text-muted mb-0">We are here to congratulate,</p>
+            <h3><a href="#" target="_blank" id="hall-of-fame-name" class="text-decoration-none"></a></h3>
+            <p id="hall-of-fame-desc">-</p>
+            <p class="text-muted" style="position: absolute; bottom: 0; margin-bottom: 15px;">~ Signed by our leader, Ultramob</p>
+            <button href="#" class="btn btn-primary" onclick="this.parentElement.close()" style="position: absolute; top: 0; right: 0; margin: 10px; text-decoration: none;">X</button>
+            <img id="hall-of-fame-avatar" src="https://c0.ptacdn.com/thumbnails/avatars/5306e293e9d7e338866a58ea5c5aec0f1406c0adae6291d46f661ff61d7fcaae-icon.png" alt="Hall of Fame - " style="border-radius: 10px; position: absolute; bottom: 0; right: 0; margin: 10px; width: 75px; height: 75px;">
+        </dialog>
         <main id="page" class="w-50 mx-auto text-center">
             <div style="height: 125px;"></div>
             <div class="great-divide-card mb-5">
@@ -143,6 +213,19 @@
                     <a href="https://polytoria.com/event/the-great-divide" target="_blank" class="btn btn-info btn-sm hover-effect-small">Join our cause!</a>
                     <a href="https://polytoria.com/guilds/642" target="_blank" class="btn btn-info btn-sm hover-effect-small">Guild</a>
                     <a href="https://www.youtube.com/watch?v=XOkjgVAeb3w" target="_blank" class="btn btn-info btn-sm hover-effect-small">Tutorial</a>
+                </div>
+            </div>
+            
+            <div class="great-divide-card mb-5">
+                <h1>Our Bravest Warriors</h1>
+                <p class="text-muted">They may never recover from their trauma on the battle field, however them and their families will always be in our hearts. We congratulate them with esteemed honor, and are glad they made it out alive.</p>
+                <div class="d-flex" style="gap: 15px; overflow-x: scroll;">
+                    <a class="hall-of-fame hover-effect" href="#">
+                        <h3 class="userlink userlink-sergeant">
+                            Emir
+                        </h3>
+                        <img src="https://c0.ptacdn.com/thumbnails/avatars/49221524aaebe96ce715a91686bcc0a756f404528c0261303e643f904d4a1cad.png" alt="Hall of Fame - Emir">
+                    </a>
                 </div>
             </div>
 
