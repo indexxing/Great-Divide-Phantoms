@@ -16,6 +16,10 @@ const HallOfFameData = {
     kep: {
         id: 13673,
         message: "Kep is one of the strongest combatants in the Phantoms and has been vital to our efforts. Kep has often maintained the top of the leader-board, and even with that the gap between him and those below have been huge, this just proves how much devotion and dedication he has towards the phantoms, and for this he deserves a spot in the hall of fame. I don't think we would be anywhere near where we are without the help of Kep and his amazing combat and dedication to earning points."
+    },
+    Everlast: {
+        id: 14772,
+        message: "I think at this point it's no surprise that Everlast has been important to the phantoms. He has been responsible for a huge amount of our points, and was the first person to get the phantom teapot, which is an amazing achievement. Everlast is amazing in combat, but excluding this he is also incredibly dedicated to the phantoms, proceeding to earn points even after getting the teapot and offering to join games when people are in need of assistance."
     }
 }
 
