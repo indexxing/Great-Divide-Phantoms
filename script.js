@@ -20,6 +20,10 @@ const HallOfFameData = {
     Everlast: {
         id: 14772,
         message: "I think at this point it's no surprise that Everlast has been important to the phantoms. He has been responsible for a huge amount of our points, and was the first person to get the phantom teapot, which is an amazing achievement. Everlast is amazing in combat, but excluding this he is also incredibly dedicated to the phantoms, proceeding to earn points even after getting the teapot and offering to join games when people are in need of assistance."
+    },
+    Index: {
+        id: 2782,
+        message: "When it comes to the hall of fame, it's not just about combat it's about contributing to the phantom effort, and Index is a prime example of someone who went above and beyond to help the phantoms making an entire website which allows you to see the size of the gap between the phantoms and the cobras, as well as other features. On top of this, Index is still being helpful in battle, while not currently on the leader-board, he still has over 25k points as well as having made this amazing website."
     }
 }
 
